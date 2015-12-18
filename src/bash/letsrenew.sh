@@ -24,7 +24,7 @@ case $key in
     certFile="$2"
     shift # past argument
     ;;
-    -r|--searchpath)
+    -r)
     certRenewalThreshold="$2"
     shift # past argument
     ;;
