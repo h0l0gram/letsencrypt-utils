@@ -21,7 +21,7 @@ Utils for managing letsencrypt certificates and its infrastructure
       -r <days>: if certificate rest validity is lower than <days> 0 is returned 1 otherwise
   
 ### Examples
-    letsrenew.sh -f letsrenew.com.pem -i 1000`
+    letsrenew.sh -f letsrenew.com.pem -i 1000
     letsrenew.sh -f letsrenew.com.pem -r 10 && <letsencrypt-update.sh>
     letsrenew.sh -f letsrenew.com.pem -r 10 && /opt/letsencrypt/letsencrypt-auto certonly --webroot -w /var/www/letsrenew.com/ -d letsrenew.com -d www.letsrenew.com --renew-by-default
   
