@@ -46,4 +46,4 @@ Quickfix for https://github.com/letsencrypt/letsencrypt/issues/1260
 - OpenSSL (to read the existing certificates)
 
 ## Comments, Improvements, Ideas
-Always welcome! Just drop a comment or raise an issue on https://github.com/h0l0gram/letsrenew-utils. Thanks
+Always welcome! Just drop a comment or raise an issue on https://github.com/h0l0gram/letsencrypt-utils. Thanks
