@@ -7,7 +7,10 @@ Utils for managing letsencrypt certificates and its infrastructure
 
 ## Install
 
-- Clone the repo to your server. e.g `/opt/letsrenew-utils`.
+- Clone the repo to your server. e.g `/opt/letsencrypt-utils`
+
+        cd /opt
+        git clone https://github.com/h0l0gram/letsencrypt-utils.git
 
 ## letsrenew.sh
 Bash Shell script which reads the remaining validity of a x509 certificate and if lower than a given threshold prints a message info/warning or returns boolean true for further processing (=renewal).
