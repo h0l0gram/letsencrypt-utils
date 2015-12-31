@@ -3,7 +3,7 @@
 Utils for managing letsencrypt certificates and its infrastructure
 
 - **letsrenew.sh**: Bash Shell script which reads the remaining validity of a x509 certificate and if lower than a given threshold prints a message info/warning or returns boolean true for further processing (=renewal).
-- **letslink.sh**: Bash Shell script which creates a directory structure (simlinks) for each domain found in the certificates of the certs archive. SAN certificates (aka multi-domains) are explicitly supported.
+- **letslink.sh**: Bash Shell script which creates a directory for each domain found in the certificates of the certs archive and creates a symlink for the latest pem file (cert, fullchain, chain, privkey). SAN certificates (aka multi-domains) are explicitly supported.
 
 ## Install
 
@@ -33,7 +33,7 @@ Bash Shell script which reads the remaining validity of a x509 certificate and i
     letsrenew.sh -f letsrenew.com.pem -r 10 && /opt/letsencrypt/letsencrypt-auto certonly --webroot -w /var/www/letsrenew.com/ -d letsrenew.com -d www.letsrenew.com --renew-by-default
 
 ## letslink.sh
-Creates a directory structure (simlinks) for each domain found in the certificates of the certs archive. SAN certificates (aka multi-domains) are explicitly supported.
+Creates a directory for each domain found in the certificates of the certs archive and creates a symlink for the latest pem file (cert, fullchain, chain, privkey). SAN certificates (aka multi-domains) are explicitly supported..
 Quickfix for https://github.com/letsencrypt/letsencrypt/issues/1260
 
 ### Setup
@@ -42,6 +42,14 @@ Quickfix for https://github.com/letsencrypt/letsencrypt/issues/1260
 
 ### Examples
     letslink.sh /etc/letsencrypt/archive /etc/letsencrypt/latest
+
+**Result:**
+
+    /etc/letsencrypt/latest/domain.com/$ ls -lah
+    lrwxrwxrwx  1 root root       34 Dec 31 19:10 cert.pem -> /etc/letsencrypt/archive/domain.com/cert2.pem
+    lrwxrwxrwx  1 root root       35 Dec 31 19:10 chain.pem -> /etc/letsencrypt/archive/domain.com/chain2.pem
+    lrwxrwxrwx  1 root root       39 Dec 31 19:10 fullchain.pem -> /etc/letsencrypt/archive/domain.com/fullchain2.pem
+    lrwxrwxrwx  1 root root       37 Dec 31 19:10 privkey.pem -> /etc/letsencrypt/archive/domain.com/privkey2.pem
     
 
 ## Requirements
