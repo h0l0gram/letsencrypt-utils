@@ -30,6 +30,7 @@ do
 
     for domain in $domains
     do
+        domain=${domain/\*/_}
 	linkDomain="$link/$domain"
 	#printf "mkdir: $linkDomain\n"
         mkdir -p $linkDomain
